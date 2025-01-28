@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            
+        }
+        .calculator {
+            display: inline-block;
+            border: 1px solid #533A7B;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #98C1D9;
+            width:500px;
+        }
+        input{
+            margin: 10px;
+            padding: 10px;
+            font-size: 1em;
+            
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 1em;
+            color: white;
+            background-color: #533A7B;
+        }
+        .operation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .operation-buttons button {
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <h1><div style="width:500px;display: inline-block; background-color: #533A7B; color: white; border: 1px solid #533A7B; padding: 10px; border-radius: 10px; text-shadow: 1px 1px 2px #000000;">Web Calculator</div></h1>
+    <div class="calculator">
+        <form method="POST" action="/calculate">
+            <input type="number" name="num1" placeholder="Enter first number" required><br>
+            <input type="number" name="num2" placeholder="Enter second number" required><br>
+            <div class="operation-buttons">
+                <button type="submit" name="operation" value="add">Addition</button>
+                <button type="submit" name="operation" value="subtract">Subtraction</button>
+                <button type="submit" name="operation" value="multiply">Multiplication</button>
+                <button type="submit" name="operation" value="divide">Division</button>
+            </div>
+        </form>
+        {% if result is not none %}
+            <h3 style="color: white; text-shadow: 1px 1px 2px #000000;">Result: {{ result }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
